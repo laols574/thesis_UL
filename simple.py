@@ -2,18 +2,24 @@
 Lauren Olson
 '''
 
+import csv
 
-file = open("trump_comments2.csv", "r+")
+with open('trump_comments_r_p.csv', newline='') as csvfile:
+    file_array = list(csv.reader(csvfile))
 
-file_array = file.readlines()
 
 all_text = ""
-
+i= 1 
 for row in file_array:
-  row = row.split(",")
-  all_text += row[4] + "\n"
+  print(i, " ", len(row))
+  i += 1  
+  ''' if(row[0] == "Apple Rivera"):
+    for i in row:
+      all_text += i + "\n"
+    all_text += "\n\n\n\n"'''
 
-output_file = open("output.txt", "w+")
+
+output_file = open("mariacheck.txt", "w+")
 output_file.write(all_text)
 
 file.close()
