@@ -1,0 +1,56 @@
+top terms per cluster:
+Cluster:  0
+bless
+god
+donald
+america
+family
+prayers
+sir
+2020
+protect
+country
+Cluster:  1
+need
+sad
+work
+walls
+keep
+us
+2020
+one
+america
+border
+Cluster:  2
+illegal
+killed
+americans
+american
+many
+immigrants
+citizens
+immigrant
+kill
+white
+Cluster:  3
+agree
+must
+100
+built
+daughter
+absolutely
+right
+need
+walls
+work
+Cluster:  4
+get
+built
+done
+let
+country
+one
+need
+rid
+illegal
+right
