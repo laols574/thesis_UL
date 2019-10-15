@@ -1,0 +1,39 @@
+import string
+import re
+
+file = open("output.txt", "r+")
+
+file_array = file.readlines()
+
+l = [ 'chollo', 'beaner', 'wetback', 'wet back', 'alien']
+
+slur_count = 0
+
+slur_dict = {}
+
+new_arr = []
+for row in file_array:
+	a = row.split()
+	a = [word.strip() for word in a]
+	
+	a = [re.sub(r'[^\w\s]','',word) for word in a]
+
+	new_arr += a
+
+
+for word in new_arr:
+	word = word.lower()
+	if(word in l):
+		slur_count += 1	
+		if(word not in slur_dict.keys()):
+			slur_dict[word] = 1
+		else:
+			slur_dict[word] = slur_dict[word] + 1
+
+file = open("slur_count", "w+")
+
+for entry in slur_dict:
+	file.write(str(entry) +  ": " + str(slur_dict[entry]) + "\n")
+
+file.write("total: " + str(slur_count))
+file.close()

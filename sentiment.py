@@ -9,14 +9,25 @@ import matplotlib.colors
 from nltk.corpus import stopwords 
 from afinn import Afinn
 
+import csv
+
 '''
 Lauren Olson
 This is a file which clusters raw text data 
 '''
 
 def main():
-	file = open("output.txt", "r+")
+	'''with open('trump_comments_r_p.csv', newline='') as csvfile:
+		corpus = list(csv.reader(csvfile))
+	
+	l = []
+	for i in corpus:
+		l.append(i[3])
+	corpus = l'''
+	
+	file = open("immigrant_count.txt")
 	corpus = file.readlines()
+
 	af = Afinn()
 
 	text2score = {}
@@ -33,24 +44,17 @@ def main():
 		if(score > 0):
 			text2sentiment[comment] = 'positive'
 			pos += 1
-		if(score < 0):
+		elif(score < 0):
 			text2sentiment[comment] = 'negative'
 			neg += 1
 		else:
 			text2sentiment[comment] = 'neutral'
 			neutral += 1
 
-	file = open("sent_out.txt", "w+")
-	
-	file.write("Positive: " + str(pos) + "\n")
-	file.write("Negative: " + str(neg) + "\n")
-	file.write("Neutral: " + str(neutral) + "\n")
-
-	for comment in text2sentiment:
-		out = str(text2sentiment[comment]) +  ": " + str(comment) + "\n"
-		file.write(out)	
-
-	file.close()
+	with open('immigrant_sentiment.csv', mode='w+') as output:
+		sent_writer = csv.writer(output, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+		for comment in text2sentiment:
+			sent_writer.writerow([str(text2sentiment[comment]), str(comment) ])
 
 """
 create functionality for clustering 
