@@ -16,7 +16,7 @@ This is a file which clusters raw text data
 '''
 
 def main():
-	with open('crime_sentiment.csv', newline='') as csvfile:
+	with open('mc_sentiment.csv', newline='') as csvfile:
 		corpus = list(csv.reader(csvfile))
 	cluster(corpus, 2)
 

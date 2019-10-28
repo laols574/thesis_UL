@@ -1,7 +1,7 @@
 import string
 import re
 
-file = open("output.txt", "r+")
+file = open("mergedcorpus_u.txt", "r+")
 
 file_array = file.readlines()
 
@@ -47,10 +47,14 @@ for word in new_arr:
 			set_of_comments.add(tuple(row))
 			
 #print(illegal)
-file = open("crime_count", "w+")
+file = open("crime_count_m", "w+")
+
+total_count = 0
+for e in slur_dict:
+	total_count += slur_dict[e]
 
 for entry in slur_dict:
-	file.write(str(entry) +  ": " + str(slur_dict[entry]) + "\n")
+	file.write(str(entry) +  ": " + str(slur_dict[entry]) + " : " + str((slur_dict[entry] / total_count)*100) + "\n")
 
 file.write("comments with slurs: \n")
 for list in set_of_comments:

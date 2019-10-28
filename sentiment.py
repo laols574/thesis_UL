@@ -25,7 +25,7 @@ def main():
 		l.append(i[3])
 	corpus = l'''
 	
-	file = open("crime_count.txt")
+	file = open("mergedcorpus_u.txt")
 	corpus = file.readlines()
 
 	af = Afinn()
@@ -51,13 +51,13 @@ def main():
 			text2sentiment[comment] = 'neutral'
 			neutral += 1
 
-	file = open("crime_sent_count.txt", "w+")
+	file = open("mc_sentiment.txt", "w+")
 	file.write("Negative: " + str(neg)  + " Percent: " + str(100*(neg/(neutral+ pos + neg))))
 	file.write("Positive: " + str(pos)  + " Percent: " + str(100*(pos/(neutral+ pos + neg))))
 	file.write("Neutral: " + str(neutral) + " Percent: " + str(100*(neutral/(neutral+ pos + neg))))
 	file.close()
 
-	with open('crime_sentiment.csv', mode='w+') as output:
+	with open('mc_sentiment.csv', mode='w+') as output:
 		sent_writer = csv.writer(output, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 		for comment in text2sentiment:
 			sent_writer.writerow([str(text2sentiment[comment]), str(comment) ])
