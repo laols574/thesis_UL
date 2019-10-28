@@ -5,7 +5,7 @@ file = open("output.txt", "r+")
 
 file_array = file.readlines()
 
-l = ["immigrant", "immigrants"]
+l = ["kingpin", "gang", "smuggle", "smuggling", "dealer", "cartel", "ms-13", "ms13", "ms 13", "crime", "criminals", "murder", "murderers", "murderer", "rapist", "rapists", "convincted", "incarcerated", "deported", "deport", "prison", "jail"]
 
 slur_count = 0
 
@@ -31,12 +31,12 @@ set_of_comments = set()
 illegal = 0
 for word in new_arr:
 	row = slur2txt[word]
-	
+	'''
 	if("illegal" in str(row).split() or "illegals" in str(row).split()):
 		illegal += 1
 		print(row)
 		break
-
+	'''
 	if(word in l):
 		slur_count += 1	
 		if(word not in slur_dict.keys()):
@@ -46,8 +46,8 @@ for word in new_arr:
 			slur_dict[word] = slur_dict[word] + 1
 			set_of_comments.add(tuple(row))
 			
-print(illegal)
-file = open("immigrant_count-illegal", "w+")
+#print(illegal)
+file = open("crime_count", "w+")
 
 for entry in slur_dict:
 	file.write(str(entry) +  ": " + str(slur_dict[entry]) + "\n")

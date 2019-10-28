@@ -6,7 +6,7 @@ from sklearn.metrics import adjusted_rand_score
 import matplotlib.pyplot as plt
 from scipy.sparse import *
 import matplotlib.colors
-from nltk.corpus import stopwords 
+from nltk.corpus import stopwords
 from afinn import Afinn
 
 import csv
@@ -25,7 +25,7 @@ def main():
 		l.append(i[3])
 	corpus = l'''
 	
-	file = open("immigrant_count.txt")
+	file = open("crime_count.txt")
 	corpus = file.readlines()
 
 	af = Afinn()
@@ -51,7 +51,13 @@ def main():
 			text2sentiment[comment] = 'neutral'
 			neutral += 1
 
-	with open('immigrant_sentiment.csv', mode='w+') as output:
+	file = open("crime_sent_count.txt", "w+")
+	file.write("Negative: " + str(neg)  + " Percent: " + str(100*(neg/(neutral+ pos + neg))))
+	file.write("Positive: " + str(pos)  + " Percent: " + str(100*(pos/(neutral+ pos + neg))))
+	file.write("Neutral: " + str(neutral) + " Percent: " + str(100*(neutral/(neutral+ pos + neg))))
+	file.close()
+
+	with open('crime_sentiment.csv', mode='w+') as output:
 		sent_writer = csv.writer(output, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 		for comment in text2sentiment:
 			sent_writer.writerow([str(text2sentiment[comment]), str(comment) ])

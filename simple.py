@@ -8,6 +8,7 @@ with open('trump_comments_r_p.csv', newline='') as csvfile:
     file_array = list(csv.reader(csvfile))
 
 data_entries = len(file_array)
+unique_users = 416
 
 source = 0
 reply_to = 1
@@ -79,20 +80,20 @@ for row in file_array:
     
 
 output_data = ""
-output_data += "Likes: " + str(likes_c) + " Percent: " + str((likes_c/data_entries)*100) + "\n"
-output_data += "Ahah: " + str(ahah_c)  + " Percent: " + str((ahah_c/data_entries)*100) +"\n"
-output_data += "Love: " + str(love_c)  + " Percent: " + str((love_c/data_entries)*100) + "\n"
-output_data += "Wow: " + str(wow_c)  + " Percent: " + str((wow_c/data_entries)*100) + "\n"
-output_data += "Sigh: " + str(sigh_c)  + " Percent: " + str((sigh_c/data_entries)*100) + "\n"
-output_data += "Grrr: " + str(grrr_c)  + " Percent: " + str((grrr_c/data_entries)*100) + "\n"
-output_data += "Name: " + str(name_c)  + " Percent: " + str((name_c/data_entries)*100) + "\n"
-output_data += "Gender: " + str(gender_c)  + " Percent: " + str((gender_c/data_entries)*100) + "\n"
-output_data += "Birthday: " + str(birthday_c)  + " Percent: " + str((birthday_c/data_entries)*100) + "\n"
-output_data += "Current City: " + str(current_c)  + " Percent: " + str((current_c/data_entries)*100) + "\n"
-output_data += "Hometown: " + str(hometown_c)  + " Percent: " + str((hometown_c/data_entries)*100) + "\n"
-output_data += "Work: " + str(work_c)  + " Percent: " + str((work_c/data_entries)*100) + "\n"
-output_data += "Education: " + str(education_c)  + " Percent: " + str((education_c/data_entries)*100) + "\n"
-output_data += "Interested In: " + str(interest_c)  + " Percent: " + str((interest_c/data_entries)*100) + "\n"
+output_data += "Likes: " + str(likes_c) + " Percent: " + str((likes_c/unique_users)*100) + "\n"
+output_data += "Ahah: " + str(ahah_c)  + " Percent: " + str((ahah_c/unique_users)*100) +"\n"
+output_data += "Love: " + str(love_c)  + " Percent: " + str((love_c/unique_users)*100) + "\n"
+output_data += "Wow: " + str(wow_c)  + " Percent: " + str((wow_c/unique_users)*100) + "\n"
+output_data += "Sigh: " + str(sigh_c)  + " Percent: " + str((sigh_c/unique_users)*100) + "\n"
+output_data += "Grrr: " + str(grrr_c)  + " Percent: " + str((grrr_c/unique_users)*100) + "\n"
+output_data += "Name: " + str(name_c)  + " Percent: " + str((name_c/unique_users)*100) + "\n"
+output_data += "Gender: " + str(gender_c)  + " Percent: " + str((gender_c/unique_users)*100) + "\n"
+output_data += "Birthday: " + str(birthday_c)  + " Percent: " + str((birthday_c/unique_users)*100) + "\n"
+output_data += "Current City: " + str(current_c)  + " Percent: " + str((current_c/unique_users)*100) + "\n"
+output_data += "Hometown: " + str(hometown_c)  + " Percent: " + str((hometown_c/unique_users)*100) + "\n"
+output_data += "Work: " + str(work_c)  + " Percent: " + str((work_c/unique_users)*100) + "\n"
+output_data += "Education: " + str(education_c)  + " Percent: " + str((education_c/unique_users)*100) + "\n"
+output_data += "Interested In: " + str(interest_c)  + " Percent: " + str((interest_c/unique_users)*100) + "\n"
 
 output_file = open("r_p_count.txt", "w+")
 output_file.write(output_data)
