@@ -14,7 +14,7 @@ This is a file which clusters raw text data
 '''
 
 def main():
-	file = open("output.txt", "r+")
+	file = open("mergedcorpus_u.txt", "r+")
 	corpus = file.readlines()
 	cluster(corpus, 5)
 
