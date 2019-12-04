@@ -1,0 +1,45 @@
+top terms per cluster:
+Cluster:  0
+done
+get
+one
+declares
+shootings
+job
+nobody
+emergency
+us
+crisis
+Cluster:  1
+illegal
+need
+killed
+americans
+american
+one
+us
+sad
+many
+walls
+Cluster:  2
+2020
+maga
+finish
+america
+support
+love
+dorothy
+fighting
+cares
+voter
+Cluster:  3
+bless
+god
+donald
+america
+family
+prayers
+sir
+families
+efforts
+angel

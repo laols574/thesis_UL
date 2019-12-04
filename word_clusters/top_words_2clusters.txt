@@ -1,0 +1,23 @@
+top terms per cluster:
+Cluster:  0
+build
+wall
+yes
+president
+mr
+trump
+2020
+sorry
+loss
+agree
+Cluster:  1
+trump
+wall
+president
+sorry
+people
+yes
+thank
+loss
+illegal
+need
